@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 # Configure a new Mac
@@ -12,4 +11,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew update
+# Install brews listed in brews.txt
+sh installBrews
+
+# Create hardlinks to OpenSSL as per https://www.microsoft.com/net/core#macos
+mkdir -p /usr/local/lib
+ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
