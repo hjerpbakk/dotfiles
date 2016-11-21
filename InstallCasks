@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Installs casks listed in casks.txt
+
+casks="casks.txt"
+
+# Install Cask
+brew install caskroom/cask/brew-cask
+
+# Install casks and update existing ones
+(set -x; brew cask cleanup;)
+
+while read -r cask
+do
+    version=$(brew cask info $cask | sed -n "s/$cask:\ \(.*\)/\1/p")
+    installed=$(find "/usr/local/Caskroom/$cask" -type d -maxdepth 1 -maxdepth 1 -name "$version")
+
+    if [[ -z $installed ]]; then
+        (set -x; brew cask uninstall $cask --force;)
+        (set -x; brew cask install $cask --force;)
+    else 
+        (set -x; brew cask install $cask --force;)
+    fi
+    echo $cask
+done < "$casks"

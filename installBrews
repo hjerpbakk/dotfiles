@@ -2,12 +2,15 @@
 
 # Installs brews listed in brews.txt
 
-filename="brews.txt"
+brews="brews.txt"
 
+# Update existing
 brew update
+brew cleanup
 
+# Install Brews
 while read -r line
 do
     brew install $line > /dev/null 2>&1
     echo $line 
-done < "$filename"
+done < "$brews"

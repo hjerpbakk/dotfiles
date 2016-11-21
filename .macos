@@ -8,13 +8,14 @@ sudo -v
 # All access all the time
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# XCode commandline tools
+xcode-select --install
+
 # Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install brews listed in brews.txt
 sh installBrews
 
-# Create hardlinks to OpenSSL as per https://www.microsoft.com/net/core#macos
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+# Install casks listed in casks.txt
+sh installCasks
