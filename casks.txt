@@ -1,3 +1,4 @@
 dotnet
+visual-studio
 visual-studio-code
 vlc
