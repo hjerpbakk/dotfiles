@@ -1,4 +1,5 @@
 dotnet
+firefox
 visual-studio
 visual-studio-code
 vlc
