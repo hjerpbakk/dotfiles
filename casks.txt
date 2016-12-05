@@ -1,6 +1,7 @@
 dotnet
 firefox
 slack
+steam
 visual-studio
 visual-studio-code
 vlc
