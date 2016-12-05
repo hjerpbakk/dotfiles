@@ -1,6 +1,7 @@
 dotnet
 firefox
 slack
+spotify
 steam
 visual-studio
 visual-studio-code
