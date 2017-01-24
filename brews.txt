@@ -1,1 +1,5 @@
 scriptcs
+node
+ruby
+rbenv
+imagemagick
