@@ -16,3 +16,4 @@ cleanmymac
 plex-media-player
 typora
 lingo
+mono-mdk

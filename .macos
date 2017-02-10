@@ -34,7 +34,7 @@ echo “Install brews listed in brews.txt”
 sh installBrews
 
 echo “Install casks listed in casks.txt”
-sh installCaskssa
+sh installCasks
 
 echo "Adjusting Dock."
 # Autohide dock
