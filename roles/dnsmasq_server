@@ -31,7 +31,6 @@ resolv-file=/etc/resolv.dnsmasq
 min-port=4096   
 server=1.1.1.1
 server=1.0.0.1
---cname=dawkins,127.0.0.1
       
 # Max cache size dnsmasq can give us, and we want all of it!    
 cache-size=10000    
