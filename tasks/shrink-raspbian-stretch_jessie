@@ -1,0 +1,68 @@
+#!/bin/bash
+set -e
+
+# Raspberry Pi script for removing packages not needed when running headless
+# Runar Ovesen Hjerpbakk
+# https://hjerpbakk.com
+# Inspired by https://github.com/karaage0703/raspberry-pi-setup/blob/master/shrink-raspbian-stretch_jessie.sh
+# 
+# Usage: 
+# $ sudo ./raspberrypi_dnsmasq
+#
+# Run from GitHub:
+# $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/shrink-raspbian-stretch_jessie | sudo sh
+
+# Must be run as root
+if [[ `whoami` != "root" ]]
+then
+  echo "This install must be run as root or with sudo."
+  exit
+fi
+
+# delete package
+delete_package(){
+	# delete package
+	apt-get autoremove -y wolfram-engine
+	apt-get autoremove -y oracle-java8-jdk
+	apt-get autoremove -y sonic-pi
+	apt-get autoremove -y libreoffice*
+	# 100MB-----------
+	apt-get autoremove -y scratch* nuscratch squeak-plugins-scratch
+	apt-get autoremove -y nuscratch
+	apt-get autoremove -y gnome-user-guide
+	apt-get autoremove -y freepats
+	apt-get autoremove -y libraspberrypi-doc
+	apt-get autoremove -y pypy
+	apt-get autoremove -y greenfoot
+	# 10MB-----------
+	apt-get autoremove -y epiphany-browser*
+	apt-get autoremove -y bluej
+	apt-get autoremove -y netsurf*
+	apt-get autoremove -y supercollider-server
+	apt-get autoremove -y debian-reference*
+	apt-get autoremove -y minecraft-pi
+	apt-get autoremove -y claws-mail
+	apt-get autoremove -y galculator
+	apt-get autoremove -y geany*
+	apt-get autoremove -y idle*
+	apt-get autoremove -y lxterminal
+	apt-get autoremove -y
+	apt-get -y clean
+}
+
+START_TIME=`date +%s`
+
+# change directory here
+cd `dirname $0`
+
+delete_package
+
+END_TIME=`date +%s`
+
+SS=`expr ${END_TIME} - ${START_TIME}`
+HH=`expr ${SS} / 3600`
+SS=`expr ${SS} % 3600`
+MM=`expr ${SS} / 60`
+SS=`expr ${SS} % 60`
+
+echo "Total Time: ${HH}:${MM}:${SS} (h:m:s)"

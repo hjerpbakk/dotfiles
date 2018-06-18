@@ -8,7 +8,7 @@ set -e
 # Usage: 
 # $ ./any_raspbian
 #
-# Net install:
+# Run from GitHub:
 # $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/any_raspbian | sh
 
 echo "Adding automatic updates to crontab"
