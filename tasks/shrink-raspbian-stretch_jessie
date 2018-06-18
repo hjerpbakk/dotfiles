@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 # Raspberry Pi script for removing packages not needed when running headless
 # Runar Ovesen Hjerpbakk
