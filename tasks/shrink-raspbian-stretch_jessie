@@ -12,7 +12,7 @@
 # $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/shrink-raspbian-stretch_jessie | sudo sh
 
 # Must be run as root or sudo
-if [ id -u != 0 ]
+if [ $(id -u) != 0 ]
 then
   echo "This install must be run as root or with sudo."
   exit
