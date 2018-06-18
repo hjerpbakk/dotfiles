@@ -5,10 +5,11 @@ set -e
 # Runar Ovesen Hjerpbakk
 # https://hjerpbakk.com
 # 
-# Usage: $ ./any_raspbian
+# Usage: 
+# $ ./any_raspbian
 #
 # Net install:
-#   $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/any_raspbian | sh
+# $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/any_raspbian | sh
 
 echo "Adding automatic updates to crontab"
 
