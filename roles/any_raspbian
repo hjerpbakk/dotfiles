@@ -28,8 +28,5 @@ else
   (crontab -l 2>/dev/null; echo "0 4 * * * sudo apt -y dist-upgrade"); echo | crontab - 
 fi
 
-crontab -l
-
-echo
 echo "Installation complete. Enjoy!"
 
