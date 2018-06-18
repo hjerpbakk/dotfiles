@@ -6,10 +6,10 @@
 # Inspired by https://github.com/karaage0703/raspberry-pi-setup/blob/master/shrink-raspbian-stretch_jessie.sh
 # 
 # Usage: 
-# $ sudo ./raspberrypi_dnsmasq
+# $ sudo ./shrink-raspbian
 #
 # Run from GitHub:
-# $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/shrink-raspbian-stretch_jessie | sudo sh
+# $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/shrink-raspbian | sudo sh
 
 # Must be run as root or sudo
 if [ $(id -u) != 0 ]
