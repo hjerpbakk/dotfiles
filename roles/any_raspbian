@@ -15,7 +15,6 @@ then
   echo "Auto update of package list already exists in crontab"
 else
   echo "Installing auto update of package list"
-  crontab -l | grep -v '^$' | crontab -
   (crontab -l 2>/dev/null; echo "0 3 * * * sudo apt -y update"); echo | crontab - 
 fi
 echo
