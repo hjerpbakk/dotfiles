@@ -1,0 +1,31 @@
+#!/bin/bash
+set -e
+
+# Raspberry Pi auto update script
+# Runar Ovesen Hjerpbakk
+# https://hjerpbakk.com
+# 
+# Usage: $ sudo ./any_raspbian
+#
+# Net install:
+#   $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/any_raspbian | sudo sh
+
+# Must be run as root
+if [[ `whoami` != "root" ]]
+then
+  echo "This install must be run as root or with sudo."
+  exit
+fi
+
+update_package_list="sudo apt -y update"
+if ! crontab -l | grep -q $update_package_list; 
+then 
+  echo "Installing auto update of package list"
+  (crontab -l 2>/dev/null; echo "0 3 * * * $update_package_list") | crontab -
+else
+  echo "Auto update of package list already exists in crontab"
+fi
+
+echo "Installation complete. Enjoy!"
+
+crontab -l
