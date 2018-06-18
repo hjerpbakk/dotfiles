@@ -11,10 +11,10 @@ set -e
 # Net install:
 #   $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/dnsmasq_server | sudo sh
 
-# Must be run as root
-if [[ `whoami` != "root" ]]
+# Must be run as root or sudo
+if [ $(id -u) != 0 ]
 then
-  echo "This install must be run as root or with sudo."
+  echo "This script must be run as root or with sudo."
   exit
 fi
 

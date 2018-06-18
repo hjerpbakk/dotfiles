@@ -14,7 +14,7 @@
 # Must be run as root or sudo
 if [ $(id -u) != 0 ]
 then
-  echo "This install must be run as root or with sudo."
+  echo "This script must be run as root or with sudo."
   exit
 fi
 
