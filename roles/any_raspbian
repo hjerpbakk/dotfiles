@@ -10,15 +10,7 @@ set -e
 # Net install:
 #   $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/any_raspbian | sh
 
-crontab -l | grep -q 'sudo apt -y update' && echo 'entry exists' || echo 'entry does not exist'
-
-if [[! crontab -l | grep -q "sudo apt -y update"]] 
-then 
-  echo "Installing auto update of package list"
-  (crontab -l 2>/dev/null; echo "0 3 * * * sudo apt -y update") | crontab -
-else
-  echo "Auto update of package list already exists in crontab"
-fi
+crontab -l | grep -q "sudo apt -y update" && echo "Auto update of package list already exists in crontab" || (crontab -l 2>/dev/null; echo "0 3 * * * sudo apt -y update") | crontab -
 
 echo "Installation complete. Enjoy!"
 
