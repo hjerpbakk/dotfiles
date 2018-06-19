@@ -46,7 +46,7 @@ delete_package(){
 	apt autoremove -y idle*
 	apt autoremove -y lxterminal
 	apt autoremove -y
-	apt -y clean
+	apt clean -y
 }
 
 START_TIME=`date +%s`
