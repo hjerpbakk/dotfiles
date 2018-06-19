@@ -9,7 +9,7 @@ set -e
 # Usage: $ sudo ./raspberrypi_dnsmasq
 #
 # Net install:
-#   $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/dnsmasq_server | sudo sh
+#   $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/dnsmasq_server | sudo sh
 
 # Must be run as root or sudo
 if [ $(id -u) != 0 ]
