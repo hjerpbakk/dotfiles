@@ -9,7 +9,7 @@ set -e
 # $ ./any_raspbian
 #
 # Run from GitHub:
-# $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/any_raspbian | sh
+# $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/any_raspbian | sh
 
 echo "Adding automatic updates to crontab"
 
