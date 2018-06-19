@@ -9,7 +9,7 @@
 # $ sudo ./shrink-raspbian
 #
 # Run from GitHub:
-# $ curl https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/shrink-raspbian | sudo sh
+# $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/shrink-raspbian | sudo sh
 
 # Must be run as root or sudo
 if [ $(id -u) != 0 ]
