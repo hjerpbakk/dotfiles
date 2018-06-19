@@ -21,32 +21,32 @@ fi
 # delete package
 delete_package(){
 	# delete package
-	apt-get autoremove -y wolfram-engine
-	apt-get autoremove -y oracle-java8-jdk
-	apt-get autoremove -y sonic-pi
-	apt-get autoremove -y libreoffice*
+	apt autoremove -y wolfram-engine
+	apt autoremove -y oracle-java8-jdk
+	apt autoremove -y sonic-pi
+	apt autoremove -y libreoffice*
 	# 100MB-----------
-	apt-get autoremove -y scratch* nuscratch squeak-plugins-scratch
-	apt-get autoremove -y nuscratch
-	apt-get autoremove -y gnome-user-guide
-	apt-get autoremove -y freepats
-	apt-get autoremove -y libraspberrypi-doc
-	apt-get autoremove -y pypy
-	apt-get autoremove -y greenfoot
+	apt autoremove -y scratch* nuscratch squeak-plugins-scratch
+	apt autoremove -y nuscratch
+	apt autoremove -y gnome-user-guide
+	apt autoremove -y freepats
+	apt autoremove -y libraspberrypi-doc
+	apt autoremove -y pypy
+	apt autoremove -y greenfoot
 	# 10MB-----------
-	apt-get autoremove -y epiphany-browser*
-	apt-get autoremove -y bluej
-	apt-get autoremove -y netsurf*
-	apt-get autoremove -y supercollider-server
-	apt-get autoremove -y debian-reference*
-	apt-get autoremove -y minecraft-pi
-	apt-get autoremove -y claws-mail
-	apt-get autoremove -y galculator
-	apt-get autoremove -y geany*
-	apt-get autoremove -y idle*
-	apt-get autoremove -y lxterminal
-	apt-get autoremove -y
-	apt-get -y clean
+	apt autoremove -y epiphany-browser*
+	apt autoremove -y bluej
+	apt autoremove -y netsurf*
+	apt autoremove -y supercollider-server
+	apt autoremove -y debian-reference*
+	apt autoremove -y minecraft-pi
+	apt autoremove -y claws-mail
+	apt autoremove -y galculator
+	apt autoremove -y geany*
+	apt autoremove -y idle*
+	apt autoremove -y lxterminal
+	apt autoremove -y
+	apt -y clean
 }
 
 START_TIME=`date +%s`
