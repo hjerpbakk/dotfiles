@@ -18,7 +18,7 @@ then
   echo "Auto update of package list already exists in crontab"
 else
   echo "Adding auto update of package list to crontab"
-  (crontab -l 2>/dev/null; echo "0 3 * * * sudo apt -y update") | crontab - 
+  (crontab -l || true; echo "0 3 * * * sudo apt -y update") | crontab - 
 fi
 
 if crontab -l | grep -q "sudo apt -y dist-upgrade"; 
@@ -26,7 +26,7 @@ then
   echo "Upgrade of installed packages already exists in crontab"
 else
   echo "Adding upgrade of installed packages"
-  (crontab -l 2>/dev/null; echo "0 4 * * * sudo apt -y dist-upgrade") | crontab - 
+  (crontab -l || true; echo "0 4 * * * sudo apt -y dist-upgrade") | crontab - 
 fi
 
 echo "Installation complete. Enjoy!"
