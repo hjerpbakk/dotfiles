@@ -11,7 +11,7 @@ set -e
 # Run from GitHub:
 # $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/any_raspbian | sh
 
-echo "Adding automatic updates to crontab"
+echo "Installing automatic updates..."
 
 if crontab -l | grep -q "sudo apt -y update"; 
 then 
