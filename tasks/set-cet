@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+# Sets time zone to CET on Raspberry Pi
+# Runar Ovesen Hjerpbakk
+# https://hjerpbakk.com
+# 
+# Usage: 
+# $ sudo ./set-cet
+#
+# Run from GitHub:
+# $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/set-cet | sudo bash
+
+# Must be run as root or sudo
+if [ $(id -u) != 0 ]
+then
+  echo "This script must be run as root or with sudo."
+  exit
+fi
+
+# Change timezone to CET and adjust clock
+sudo timedatectl set-timezone CET

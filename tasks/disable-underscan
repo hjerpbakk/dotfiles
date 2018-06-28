@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+# Disables underscan on Raspberry Pi
+# Runar Ovesen Hjerpbakk
+# https://hjerpbakk.com
+# 
+# Usage: 
+# $ sudo ./disable-underscan
+#
+# Run from GitHub:
+# $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/disable-underscan | sudo bash
+
+# Must be run as root or sudo
+if [ $(id -u) != 0 ]
+then
+  echo "This script must be run as root or with sudo."
+  exit
+fi
+
+sudo raspi-config nonint do_overscan 1

@@ -1,0 +1,39 @@
+#!/bin/bash
+set -e
+
+# Script for setting up a Raspberry Pi as a dashboard client
+# Runar Ovesen Hjerpbakk
+# https://hjerpbakk.com
+# 
+# Usage: 
+# $ ./dashboard-client new-password
+#
+# Run from GitHub:
+# $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/dashboard-client | sudo bash -s -- new-password
+
+# Only continue if a new password is given
+if [ -z ${1+x} ]; then 
+echo "New password was not given as argument, exiting"
+exit
+fi
+
+# Must be run as root or sudo
+if [ $(id -u) != 0 ]
+then
+  echo "This script must be run as root or with sudo."
+  exit
+fi
+
+# Change password of user pi
+echo "pi:$1" | chpasswd
+
+# Change timezone and adjust clock
+curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/set-cet | sudo bash
+
+# Disable underscan
+curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/disable-underscan | sudo bash
+
+# Update OS and add auto-updates to cron
+curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/auto-update | sudo bash
+
+
