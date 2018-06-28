@@ -18,5 +18,4 @@ then
   exit
 fi
 
-# Change timezone to CET and adjust clock
-sudo timedatectl set-timezone CET
+timedatectl set-timezone CET

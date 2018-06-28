@@ -20,8 +20,8 @@ fi
 
 echo "Running updates..."
 
-sudo apt -y update
-sudo apt -y dist-upgrade
+apt -y update
+apt -y dist-upgrade
 
 echo "Installing automatic updates..."
 
@@ -40,6 +40,8 @@ else
   echo "Adding upgrade of installed packages"
   (crontab -l || true; echo "0 4 * * * sudo apt -y dist-upgrade") | crontab - 
 fi
+
+crontab -l
 
 echo "Installation complete. Enjoy!"
 
