@@ -1,3 +1,4 @@
+
 #!/bin/bash
 set -e
 
@@ -7,7 +8,7 @@ set -e
 # Inspired by http://www.heystephenwood.com/2013/06/use-your-raspberry-pi-as-dns-cache-to.html
 # 
 # Usage: 
-# $ sudo ./raspberrypi_dnsmasq
+# $ sudo ./dnsmasq-server
 #
 # Net install:
 # $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/roles/dnsmasq_server | sudo sh
