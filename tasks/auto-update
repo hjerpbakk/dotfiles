@@ -18,11 +18,6 @@ then
   exit
 fi
 
-echo "Running updates..."
-
-apt -y update
-apt -y dist-upgrade
-
 echo "Installing automatic updates..."
 
 if crontab -l | grep -q "sudo apt -y update"; 

@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+# Raspberry Pi update script
+# Runar Ovesen Hjerpbakk
+# https://hjerpbakk.com
+# 
+# Usage: 
+# $ sudo ./update
+#
+# Run from GitHub:
+# $ curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/update | sudo bash
+
+# Must be run as root or sudo
+if [ $(id -u) != 0 ]
+then
+  echo "This script must be run as root or with sudo."
+  exit
+fi
+
+# TODO: Move to own script
+
+echo "Running updates..."
+
+apt -y update
+apt -y dist-upgrade
+
+echo "Finished updating, restart probably recommended"

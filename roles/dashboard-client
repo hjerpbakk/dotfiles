@@ -27,13 +27,16 @@ fi
 # Change password of user pi
 echo "pi:$1" | chpasswd
 
+# Update to latest packages
+curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/update | bash
+
 # Change timezone and adjust clock
 curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/set-cet | bash
 
 # Disable underscan
 curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/disable-underscan | bash
 
-# Update OS and add auto-updates to cron
+# Add auto-updates to cron
 curl -s https://raw.githubusercontent.com/Sankra/dotfiles/master/tasks/auto-update | bash
 
 
