@@ -4,3 +4,7 @@ rbenv
 imagemagick
 bat
 xsv
+libtiff
+libjpeg
+webp
+little-cms2
