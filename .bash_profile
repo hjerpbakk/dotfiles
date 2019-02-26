@@ -6,3 +6,4 @@ alias build=./build.sh
 alias clean=./clean.sh
 alias view=./view.sh
 alias preview=./preview.sh
+alias update=./update.sh
