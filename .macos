@@ -37,11 +37,6 @@ echo “Install casks listed in casks.txt”
 sh installCasks
 
 echo "Adjusting Dock."
-# Autohide dock
-defaults write com.apple.dock autohide -bool true
-
-# Change minimize/maximize window effect
-defaults write com.apple.dock mineffect -string "scale"
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
@@ -77,25 +72,3 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
-
-Killall Finder
-
-echo “Installing node packages”
-npm install -g bower
-npm install -g gulp
-
-echo “Installing gems”
-gem install jekyll bundler
-
-echo “Disable iOS simulator firewall warnings”
-#temporarily shut firewall off:
-/usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
-
-#put Xcode as an exception:
-/usr/libexec/ApplicationFirewall/socketfilterfw --add /Applications/Xcode.app/Contents/MacOS/Xcode
-
-#put iOS Simulator as an exception:
-/usr/libexec/ApplicationFirewall/socketfilterfw --add /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator
-
-#re-enable firewall:
-/usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
