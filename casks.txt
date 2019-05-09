@@ -12,3 +12,8 @@ charles
 skype-for-business
 cleanmymac
 plex-media-player
+geekbench
+gfxcardstatus
+turbo-boost-switcher
+jotta
+tripmode
