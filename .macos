@@ -28,21 +28,7 @@ scutil --set LocalHostName $mac_os_name
 
 echo "Copying bash profile..."
 
-cp ./.bash-profile ~/.bash-profile -f
-
-echo "Security & Privacy"
-
-echo "Enabling FileVault"
-fdesetup enable
-
-echo "Enabling firewall"
-defaults write /Library/Preferences/com.apple.alf globalstate -int 1
-
-launchctl unload /System/Library/LaunchAgents/com.apple.alf.useragent.plist
-launchctl unload /System/Library/LaunchDaemons/com.apple.alf.agent.plist
-
-launchctl load /System/Library/LaunchDaemons/com.apple.alf.agent.plist
-launchctl load /System/Library/LaunchAgents/com.apple.alf.useragent.plist
+cp -f ./.bash_profile ~/.bash-profile
 
 echo "No password delay"
 defaults write com.apple.screensaver askForPasswordDelay -int 0
