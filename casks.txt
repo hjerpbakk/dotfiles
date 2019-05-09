@@ -18,3 +18,4 @@ turbo-boost-switcher
 jotta
 tripmode
 bartender
+github-desktop
