@@ -6,7 +6,6 @@ vlc
 docker
 postman
 imageoptim
-visual-studio
 opera
 charles
 skype-for-business
@@ -19,3 +18,4 @@ jotta
 tripmode
 bartender
 github-desktop
+discord
