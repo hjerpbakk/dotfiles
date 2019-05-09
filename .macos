@@ -37,10 +37,13 @@ echo "Installing Homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "Installing brews listed in brews.txt"
-sh installBrews
+sh install_brews
 
 echo "Installing casks listed in casks.txt"
-sh installCasks
+sh install_casks
+
+echo "Installing apps listed in apps.txt"
+sh install_apps
 
 echo "Adjusting Dock"
 

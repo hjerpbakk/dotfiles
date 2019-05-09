@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+# Use mas list to list all installed Mac App Store apps
+apps="apps.txt"
+
+echo "Installing Mac App Store command line"
+
+if ! command -v mas > /dev/null; then
+  printf "ERROR: Mac App Store CLI (mas) can't be found.\n"
+  printf "       Please ensure Homebrew and mas (i.e. brew install mas) have been installed first."
+  exit 1
+fi
+
+echo "Installing apps"
+while read -r line
+do
+    mas install $line > /dev/null 2>&1
+    echo $line 
+done < "$apps"
