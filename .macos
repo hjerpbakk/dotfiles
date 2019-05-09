@@ -9,6 +9,24 @@ sudo -v
 echo "All access all the time"
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+read -p "What is this machine's label (Human readable)? " mac_os_label
+if [[ -z "$mac_os_label" ]]; then
+  printf "ERROR: Invalid MacOS label.\n"
+  exit 1
+fi
+
+read -p "What is this machine's name (Machine readable, no spaces)? " mac_os_name
+if [[ -z "$mac_os_name" ]]; then
+  printf "ERROR: Invalid MacOS name.\n"
+  exit 1
+fi
+
+printf "Setting system label and name...\n"
+scutil --set ComputerName $mac_os_label
+scutil --set HostName $mac_os_name
+scutil --set LocalHostName $mac_os_name
+defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $mac_os_name
+
 echo "Copying bash profile..."
 
 cp ./.bash-profile ~/.bash-profile -f
@@ -47,37 +65,71 @@ sh install_apps
 
 echo "Adjusting Dock"
 
-# Minimize windows into their application’s icon
+echo "Minimize windows into their application’s icon"
 defaults write com.apple.dock minimize-to-application -bool true
 
-# Show indicator lights for open applications in the Dock
+echo "Show indicator lights for open applications in the Dock"
 defaults write com.apple.dock show-process-indicators -bool false
 
-# Position (left, bottom, right)
+echo "Position (left, bottom, right)"
 defaults write com.apple.dock orientation -string "left"
 
-# Disable double-click a window's title bar to minimize
+echo "Disable double-click a window's title bar to minimize"
 defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
+
+echo "Wipe every default app from dock"
+defaults delete com.apple.dock persistent-apps
+defaults delete com.apple.dock persistent-others
 
 echo "Dark mode"
 defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
 
 echo "Adjusting Finder"
 
-# When performing a search, search the current folder by default
+echo "When performing a search, search the current folder by default"
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# no warning prompt when changing file extension
+echo "no warning prompt when changing file extension"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false 
 
-# New window points to projects
+echo "New window points to projects"
 defaults write com.apple.finder NewWindowTarget -string "PfLo" "file://~/projects"
 
-# Show icons for servers on the desktop
+echo "Show icons for servers on the desktop"
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 
-# Disable the warning before emptying the Trash
+echo "Disable the warning before emptying the Trash"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+echo Show the ~/Library folder
+chflags nohidden ~/Library
+
+echo Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+printf "Keyboard - Automatically illuminate built-in MacBook keyboard in low light\n"
+defaults write com.apple.BezelServices kDim -bool true
+
+printf "Keyboard - Turn off keyboard illumination when computer is not used for 5 seconds\n"
+defaults write com.apple.BezelServices kDimTime -int 5
+
+echo "Enable the Develop menu in Safari"
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+printf "Safari - Add a context menu item for showing the Web Inspector in web views\n"
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+printf "TextEdit - Use plain text mode for new documents\n"
+defaults write com.apple.TextEdit RichText -int 0
+
+printf "Time Machine - Prevent prompting to use new hard drives as backup volume\n"
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+echo "Expand save panel by default"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 killall Dock
 killall SystemUIServer
