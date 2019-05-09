@@ -19,3 +19,4 @@ tripmode
 bartender
 github-desktop
 discord
+transmission
