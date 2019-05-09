@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+set -e
 
-echo "Configure a new Mac"
+echo "Configuring your new Mac"
 
-echo "All access"
+echo "Enabling sudo"
 sudo -v
 
 echo "All access all the time"
@@ -13,10 +14,11 @@ echo "Copying bash profile..."
 cp ./.bash-profile ~/.bash-profile -f
 
 echo "Security & Privacy"
-# Enable FileVault
+
+echo "Enabling FileVault"
 fdesetup enable
 
-# Enable firewall
+echo "Enabling firewall"
 defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
 launchctl unload /System/Library/LaunchAgents/com.apple.alf.useragent.plist
@@ -25,22 +27,22 @@ launchctl unload /System/Library/LaunchDaemons/com.apple.alf.agent.plist
 launchctl load /System/Library/LaunchDaemons/com.apple.alf.agent.plist
 launchctl load /System/Library/LaunchAgents/com.apple.alf.useragent.plist
 
-# Ask for password earlier
+echo "No password delay"
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-echo "XCode commandline tools"
+echo "Installing XCode commandline tools"
 xcode-select --install
 
-echo "Homebrew"
+echo "Installing Homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-echo "Install brews listed in brews.txt"
+echo "Installing brews listed in brews.txt"
 sh installBrews
 
-echo "Install casks listed in casks.txt"
+echo "Installing casks listed in casks.txt"
 sh installCasks
 
-echo "Adjusting Dock."
+echo "Adjusting Dock"
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
@@ -56,9 +58,6 @@ defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
 
 echo "Dark mode"
 defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
-
-killall Dock
-killall SystemUIServer
 
 echo "Adjusting Finder"
 
@@ -76,3 +75,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+killall Dock
+killall SystemUIServer
+killall Finder
