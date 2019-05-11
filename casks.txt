@@ -20,3 +20,4 @@ bartender
 github-desktop
 discord
 transmission
+grammarly
