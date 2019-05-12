@@ -21,3 +21,4 @@ github-desktop
 discord
 transmission
 grammarly
+keybase
