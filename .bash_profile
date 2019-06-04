@@ -1,6 +1,10 @@
 # Add .NET Core SDK tools
 export PATH="$PATH:/Users/sankra/.dotnet/tools"
 
+# Silence Bash deprication warning
+# https://support.apple.com/en-us/HT208050
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Alias for useful scripts
 alias publish=./publish.sh
 alias purge=./purge.sh
