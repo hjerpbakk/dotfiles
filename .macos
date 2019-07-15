@@ -30,6 +30,10 @@ echo "Copying bash profile..."
 
 cp -f ./.bash_profile ~/.bash-profile
 
+echo "Copying ZSH profile..."
+
+cp -f ./.zshrc ~/.zshrc
+
 echo "No password delay"
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
