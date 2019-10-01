@@ -1,14 +1,10 @@
-dotnet-sdk
 firefox
 spotify
-visual-studio-code
 vlc
 docker
 postman
 imageoptim
-opera
 charles
-skype-for-business
 cleanmymac
 plex-media-player
 geekbench
