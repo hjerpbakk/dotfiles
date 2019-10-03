@@ -30,9 +30,14 @@ echo "Copying bash profile..."
 
 cp -f ./.bash_profile ~/.bash-profile
 
-echo "Copying ZSH profile..."
+echo "Installing oh-my-zsh..."
 
-cp -f ./.zshrc ~/.zshrc
+sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# TODO: zsh-must be appended afterwards
+#echo "Copying ZSH profile..."
+
+# cp -f ./.zshrc ~/.zshrc
 
 echo "No password delay"
 defaults write com.apple.screensaver askForPasswordDelay -int 0
