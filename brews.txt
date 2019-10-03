@@ -1,4 +1,5 @@
-mas
 hyperfine
-jq
 wget
+htop
+ctop
+lazydocker
