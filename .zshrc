@@ -17,6 +17,10 @@ alias update='./update.sh'
 alias run='./run.sh'
 alias profile='./profile.sh'
 
+function quote {
+	curl -s https://app.amosti.net/reading/api/notes/random | jq '(.note) + " - " + (.authors[0]) + ", " + (.title)'
+}
+
 # Keypad
 # 0 . Enter
 bindkey -s "^[Op" "0"
@@ -33,9 +37,3 @@ bindkey -s "^[Ov" "6"
 # 7 8 9
 bindkey -s "^[Ow" "7"
 bindkey -s "^[Ox" "8"
-bindkey -s "^[Oy" "9"
-# + -  * /
-bindkey -s "^[Ok" "+"
-bindkey -s "^[Om" "-"
-bindkey -s "^[Oj" "*"
-bindkey -s "^[Oo" "/"
