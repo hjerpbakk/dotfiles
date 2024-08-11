@@ -37,3 +37,5 @@ bindkey -s "^[Ov" "6"
 # 7 8 9
 bindkey -s "^[Ow" "7"
 bindkey -s "^[Ox" "8"
+
+cd ~/projects
